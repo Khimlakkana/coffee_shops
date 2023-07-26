@@ -96,9 +96,9 @@
 
     <!-- Entrepreneur Start -->
     <div class="container">
-        <h3 class="mt-4">เข้าสู่ระบบ</h3>
+        <h3 class="mt-4">สมัครสมาชิก</h3>
         <hr>
-        <form action="signin_db.php" method="post">
+        <form action="signup_db.php" method="post">
             <!-- <?php if(isset($_SESSION['error'])) { ?>
                 <div class="alert alert-danger" role="alert">
                     <?php 
@@ -114,7 +114,24 @@
                         unset($_SESSION['success']);
                     ?>
                 </div>
+            <?php } ?>
+            <?php if(isset($_SESSION['warning'])) { ?>
+                <div class="alert alert-warning" role="alert">
+                    <?php 
+                        echo $_SESSION['warning'];
+                        unset($_SESSION['warning']);
+                    ?>
+                </div>
             <?php } ?> -->
+
+            <div class="mb-3">
+                <label for="firstname" class="form-label">First name</label>
+                <input type="text" class="form-control" name="firstname" aria-describedby="firstname">
+            </div>
+            <div class="mb-3">
+                <label for="lastname" class="form-label">Last name</label>
+                <input type="text" class="form-control" name="lastname" aria-describedby="lastname">
+            </div>
             <div class="mb-3">
                 <label for="email" class="form-label">Email</label>
                 <input type="email" class="form-control" name="email" aria-describedby="email">
@@ -123,22 +140,16 @@
                 <label for="password" class="form-label">Password</label>
                 <input type="password" class="form-control" name="password">
             </div>
-            <button type="submit" name="signin" class="btn btn-primary">Sign In</button>
-
+            <div class="mb-3">
+                <label for="confirm password" class="form-label">Confirm Password</label>
+                <input type="password" class="form-control" name="c_password">
+            </div>
+            <button type="submit" name="signup" class="btn btn-primary">Sign Up</button>
+            
         </form>
         <hr>
-        <p>ยังไม่เป็นสมาชิกใช่ไหม คลิ๊กที่นี่เพื่อ <a href="register.html">สมัครสมาชิก</a>
-            <script>
-            Swal.fire(
-                'Good job!',
-                'You clicked the button!',
-                'success'
-              )
-            </script>
-            </p>
+        <p>เป็นสมาชิกแล้วใช่ไหม คลิ๊กที่นี่เพื่อ <a href="entrepreneur.html">เข้าสู่ระบบ</a></p>
     </div>
-    
-
     <!-- Entrepreneur End -->
         
 
@@ -165,14 +176,7 @@
 
     <!-- Template Javascript -->
     <script src="js/main.js"></script>
-    <script>
-        Swal.fire({
-            icon: 'error',
-            title: 'Oops...',
-            text: 'Something went wrong!',
-            footer: '<a href="">Why do I have this issue?</a>'
-          })
-    </script>
+    
 </body>
 
 </html>
